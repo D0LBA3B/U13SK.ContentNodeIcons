@@ -1,25 +1,48 @@
 <Project Sdk="Microsoft.NET.Sdk.Razor">
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <StaticWebAssetBasePath>/</StaticWebAssetBasePath>
+    <ContentTargetFolders>.</ContentTargetFolders>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>U13SK.ContentNodeIcons</PackageId>
     <Version>1.0.0</Version>
     <Authors>Mark Drake, D0LBA3B</Authors>
     <Company>Mark Drake, D0LBA3B</Company>
+    <Product>U13SK.ContentNodeIcons</Product>
+    <Title>U13SK.ContentNodeIcons</Title>
     <Description>This allows for custom icons to be assigned to individual content nodes in the Umbraco CMS. Updated for Umbraco 13 and .NET 8 by D0LBA3B.</Description>
-    <Copyright>Copyright © 2020 Mark Drake. Migration to Umbraco 13 © 2024 D0LBA3B.</Copyright>
+    <PackageTags>umbraco icons custom-icons</PackageTags>
+    <Authors>D0LBA3B</Authors>
+    <Company>D0LBA3B</Company>
     <PackageProjectUrl>https://github.com/D0LBA3B/U13SK.ContentNodeIcons</PackageProjectUrl>
+    <Copyright>Copyright © 2020 Mark Drake. Migration to Umbraco 13 © 2024 D0LBA3B.</Copyright>
     <RepositoryUrl>https://github.com/D0LBA3B/U13SK.ContentNodeIcons</RepositoryUrl>
-    <RepositoryType>Git</RepositoryType>
-    <PackageTags>Umbraco</PackageTags>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>readme.md</PackageReadmeFile>
+    <PackageIcon>icon.png</PackageIcon>
     <PackageReleaseNotes>
       This is a beta release. Please report any issues to the public repository.
     </PackageReleaseNotes>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <NeutralLanguage>en</NeutralLanguage>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
   </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="Umbraco.Cms.Web.Website" Version="13.0.0" />
     <PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="13.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\icon.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\readme.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 </Project>
