@@ -1,16 +1,18 @@
 <Project Sdk="Microsoft.NET.Sdk.Razor">
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <Version>1.0.4</Version>
-    <Authors>Mark Drake</Authors>
-    <Company>Mark Drake</Company>
-    <Description>This allows for custom icons to be assigned to individual content nodes in the Umbraco CMS.</Description>
-    <Copyright>Copyright S© 2020 Mark Drake, and other contributors</Copyright>
+    <Version>1.0.0</Version>
+    <Authors>Mark Drake, D0LBA3B</Authors>
+    <Company>Mark Drake, D0LBA3B</Company>
+    <Description>This allows for custom icons to be assigned to individual content nodes in the Umbraco CMS. Updated for Umbraco 13 and .NET 8 by D0LBA3B.</Description>
+    <Copyright>Copyright © 2020 Mark Drake. Migration to Umbraco 13 © 2024 D0LBA3B.</Copyright>
     <PackageProjectUrl>https://github.com/D0LBA3B/U13SK.ContentNodeIcons</PackageProjectUrl>
     <RepositoryUrl>https://github.com/D0LBA3B/U13SK.ContentNodeIcons</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
     <PackageTags>Umbraco</PackageTags>
-    <PackageReleaseNotes>This is an beta release. Please report any issues to the public repository.</PackageReleaseNotes>
+    <PackageReleaseNotes>
+      This is a beta release. Please report any issues to the public repository.
+    </PackageReleaseNotes>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <NeutralLanguage>en</NeutralLanguage>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -19,10 +21,5 @@
   <ItemGroup>
     <PackageReference Include="Umbraco.Cms.Web.Website" Version="13.0.0" />
     <PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="13.0.0" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="wwwroot\App_Plugins\U13SK.ContentNodeIcons\package.manifest" />
-    <None Include="wwwroot\App_Plugins\U13SK.ContentNodeIcons\Tree.action.setIconController.js" />
-    <None Include="wwwroot\App_Plugins\U13SK.ContentNodeIcons\Tree.action.setIconTemplate.html" />
   </ItemGroup>
 </Project>

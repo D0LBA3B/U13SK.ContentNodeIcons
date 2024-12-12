@@ -1,41 +1,51 @@
-> [Please report all issues at the public GitHub repository](https://github.com/markadrake/U13SK.ContentNodeIcons/issues).
+> [Please report all issues at the public GitHub repository](https://github.com/D0LBA3B/U13SK.ContentNodeIcons/issues).
 
 # Content Node Icons
 
-Assign custom icons to individual content nodes through the backoffice of Umbraco. 
+Assign custom icons to individual content nodes through the backoffice of Umbraco.  
 
-*Part of my Umbraco 8 Starter Kit (U13SK).*
+*Originally part of the Umbraco 8 Starter Kit (U13SK) by Mark Drake, migrated and restructured for Umbraco 13 and .NET 8 by D0LBA3B.*
 
 | At a Glance | |
 | :-- | --
-| Current Version: | 1.0.1
-| Requirements: | Umbraco 8.7+
+| Current Version: | 1.0.0
+| Requirements: | Umbraco 13.0+
 | Nuget: | [Nuget Package](https://www.nuget.org/packages/U13SK.ContentNodeIcons/)
-| Umbraco: | [Umbraco Package](https://our.umbraco.com/packages/backoffice-extensions/content-node-icons/)
+| Repository: | [GitHub](https://github.com/D0LBA3B/U13SK.ContentNodeIcons)
 
 ## Install via Nuget
 
-**If you are using the Nuget Package Manager**, search for "U13SK.ContentNodeIcons" authored by Mark Drake. 
+**If you are using the Nuget Package Manager**, search for "U13SK.ContentNodeIcons" authored by Mark Drake and D0LBA3B.  
 
 **If you are using the Package Manager Console**, use the following command:
 
-```PM> Install-Package U13SK.ContentNodeIcons -Version 1.0.0```
+```PM> Install-Package U13SK.ContentNodeIcons```
 
 ## Install Through the Umbraco Backoffice
 
-**In the Packages section,** search for "Content Node Icons". The owner should be Mark Drake. Click the green button labeled "Install package" and follow the rest of the steps to download and install the package automatically.
+**In the Packages section,** search for "Content Node Icons". The owner should be listed as "Mark Drake & D0LBA3B". Click the green button labeled "Install package" and follow the rest of the steps to download and install the package automatically.
 
 ## Walk Through
 
-> In progress. This is the documentation portion of the readme that will walk developers through all of the various features that come together to make this possible.
+> In progress. This is the documentation portion of the README that will walk developers through all of the various features that come together to make this possible.
 
-## About the Author
+## About the Authors
 
-Hi I'm [Mark Drake](//markadrake.com) and I'm a *frontend web engineer*. Most of my expertise is in the realm of human-centered design, application of good UI/UX principals, continual process improvement, and everything considered client-side! When I'm not developing web sites or web applications, you can probably find me crafting, working, or playing in mixed-reality spaces.
+Hi! This package was originally created by [Mark Drake](//markadrake.com), a *frontend web engineer* specializing in human-centered design and good UI/UX principles.  
 
-Please consider [sponsoring me here through GitHub](https://github.com/sponsors/markadrake). Every sponsorship, large or small, helps me direct more of my attention, time, and care to open source contributions. Another way you can directly support me is to [subscribe to my YouTube channel](https://www.youtube.com/c/MarkDrake1).
+In 2024, the package was migrated to Umbraco 13 and .NET 8, along with a restructuring of its architecture, by [D0LBA3B](//github.com/D0LBA3B), a computer scientist and application developer passionate about open source projects and contributions.
 
-If I can help assist or support you in any way, please reach out through any of the networks I participate in. 
+### Mark Drake
+Please consider [sponsoring Mark through GitHub](https://github.com/sponsors/markadrake). Every sponsorship, large or small, helps him direct more of his attention, time, and care to open source contributions.  
+
+[Personal Website](//markadrake.com) | [YouTube](//youtube.com/c/MarkDrake1) | [GitHub](//github.com/markadrake/) | [LinkedIn](http://www.linkedin.com/in/markadrake)  
+
+### D0LBA3B
+Feel free to reach out to D0LBA3B for feedback or questions about the migration or improvements:  
+
+[GitHub](https://github.com/D0LBA3B)
+
+---
 
 All the best!  
-[Personal Website](//markadrake.com) | [YouTube](//youtube.com/c/MarkDrake1) | [GitHub](//github.com/markadrake/) | [LinkedIn](http://www.linkedin.com/in/markadrake)
+Mark Drake & D0LBA3B
