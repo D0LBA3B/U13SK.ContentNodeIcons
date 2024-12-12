@@ -1,49 +1,50 @@
-# Content Node Icons
+# Content Node Icons (Umbraco 13+)
 
-Assign custom icons to individual content nodes through the backoffice of Umbraco.  
+[![NuGet Downloads](https://img.shields.io/nuget/dt/U13SK.ContentNodeIcons?color=red&label=Downloads&logo=nuget)](https://www.nuget.org/packages/U13SK.ContentNodeIcons)
+[![GitHub License](https://img.shields.io/github/license/D0LBA3B/U13SK.ContentNodeIcons?color=green&label=License&logo=github)](https://github.com/D0LBA3B/U13SK.ContentNodeIcons/blob/master/LICENSE)
 
-*Originally part of the Umbraco 8 Starter Kit (U13SK) by Mark Drake, migrated and restructured for Umbraco 13 and .NET 8 by D0LBA3B.*
+Easily assign custom icons to individual content nodes directly from the Umbraco backoffice.
 
-| At a Glance | |
-| :-- | --
-| Current Version: | 1.0.0
-| Requirements: | Umbraco 13.0+
-| Nuget: | [Nuget Package](https://www.nuget.org/packages/U13SK.ContentNodeIcons/)
-| Repository: | [GitHub](https://github.com/D0LBA3B/U13SK.ContentNodeIcons)
+*Originally part of the Umbraco 8 Starter Kit (U8SK) by Mark Drake, this project has been migrated and restructured for Umbraco 13 and .NET 8 by D0LBA3B.*
 
-## Install via Nuget
+## Installation via NuGet
 
-**If you are using the Nuget Package Manager**, search for "U13SK.ContentNodeIcons" authored by Mark Drake and D0LBA3B.  
+**Using the NuGet Package Manager:** Search for "U13SK.ContentNodeIcons"
 
-**If you are using the Package Manager Console**, use the following command:
+**Using the Package Manager Console:**
+```powershell
+PM> Install-Package U13SK.ContentNodeIcons
+```
 
-```PM> Install-Package U13SK.ContentNodeIcons```
+## Features and Usage
 
-## Install Through the Umbraco Backoffice
+### Key Features
+- Assign unique icons to content nodes.
+- Intuitive backoffice UI for selecting and managing icons.
+- Seamlessly integrates into the existing Umbraco content structure.
 
-**In the Packages section,** search for "Content Node Icons". The owner should be listed as "Mark Drake & D0LBA3B". Click the green button labeled "Install package" and follow the rest of the steps to download and install the package automatically.
+*(Detailed walkthrough coming soon.)*
 
-## Walk Through
+## Screenshots
 
-> In progress. This is the documentation portion of the README that will walk developers through all of the various features that come together to make this possible.
+Below are some examples of how the package enhances the content management experience:
+
+### Icon Assignment Interface
+![Icon Assignment Interface](https://raw.githubusercontent.com/D0LBA3B/U13SK.ContentNodeIcons/master/screens/menu.png)
+
+### Custom Icons in Content Tree
+![Custom Icons in Content Tree](https://raw.githubusercontent.com/D0LBA3B/U13SK.ContentNodeIcons/master/screens/content.png)
 
 ## About the Authors
-
-Hi! This package was originally created by [Mark Drake](//markadrake.com), a *frontend web engineer* specializing in human-centered design and good UI/UX principles.  
-
-In 2024, the package was migrated to Umbraco 13 and .NET 8, along with a restructuring of its architecture, by [D0LBA3B](//github.com/D0LBA3B), a computer scientist and application developer passionate about open source projects and contributions.
-
-### Mark Drake
-Please consider [sponsoring Mark through GitHub](https://github.com/sponsors/markadrake). Every sponsorship, large or small, helps him direct more of his attention, time, and care to open source contributions.  
-
-[Personal Website](//markadrake.com) | [YouTube](//youtube.com/c/MarkDrake1) | [GitHub](//github.com/markadrake/) | [LinkedIn](http://www.linkedin.com/in/markadrake)  
+This package was originally created by [Mark Drake](https://markadrake.com) for Umbraco 8.
+Subsequent migration to Umbraco 13, as well as architectural enhancements, were completed by [D0LBA3B](https://github.com/D0LBA3B).
 
 ### D0LBA3B
-Feel free to reach out to D0LBA3B for feedback or questions about the migration or improvements:  
+[GitHub](https://github.com/D0LBA3B) | [Buy me a coffee](https://buymeacoffee.com/dolba3b)
 
-[GitHub](https://github.com/D0LBA3B)
+### Mark Drake
+Consider [sponsoring Mark on GitHub](https://github.com/sponsors/markadrake). Your support helps him dedicate more time and effort to open-source projects.
+
+[Personal Website](https://markadrake.com) | [YouTube](https://youtube.com/c/MarkDrake1) | [GitHub](https://github.com/markadrake/) | [LinkedIn](https://www.linkedin.com/in/markadrake)
 
 ---
-
-All the best!  
-Mark Drake & D0LBA3B
