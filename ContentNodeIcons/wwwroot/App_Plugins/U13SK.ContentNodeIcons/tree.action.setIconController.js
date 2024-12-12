@@ -1,4 +1,4 @@
-﻿/*
+/*
 	Slightly modified version from Umbraco CMS:
 		- Umbraco-CMS/src/Umbraco.Web.UI.Client/src/views/common/infiniteeditors/iconpicker/iconpicker.controller.js
 		- https://github.com/umbraco/Umbraco-CMS/blob/add1a99cc407af1971e22cbecf36d2c616ad1b4e/src/Umbraco.Web.UI.Client/src/views/common/infiniteeditors/iconpicker/iconpicker.controller.js
@@ -123,7 +123,7 @@
 			const contentId = $scope.currentNode.id;
 
 			return $q(function (resolve, reject) {
-				$http.get(`/umbraco/api/contentnodeicons/geticon/${contentId}`).then((response) => {
+				$http.get(`backoffice/api/contentnodeicons/geticon/${contentId}`).then((response) => {
 					if (!response.data) reject(null);
 
 					let data = response.data;
@@ -138,6 +138,7 @@
 				});
 			});
 		}
+
 		function onInit() {
 			vm.loading = true;
 			setTitle();
@@ -152,6 +153,7 @@
 			// if an icon is passed in - preselect it
 			vm.icon = $scope.model.icon ? $scope.model.icon : undefined;
 		}
+
 		function setTitle() {
 			if (!$scope.model.title) {
 				localizationService.localize('defaultdialogs_selectIcon').then(function (data) {
@@ -159,16 +161,19 @@
 				});
 			}
 		}
+
 		function selectIcon(icon, color) {
 			$scope.model.icon = icon;
 			$scope.model.color = color;
 			submit();
 		}
+
 		function findColor(value) {
 			return vm.colors.find(function (x) {
 				return x.value === value;
 			});
 		}
+
 		function selectColor(color) {
 			var newColor = color || vm.colors.find(function (x) {
 				return x.default;
@@ -176,28 +181,31 @@
 			$scope.model.color = newColor.value;
 			vm.color = newColor;
 		}
+
 		function close() {
 			navigationService.hideMenu();
 		}
+
 		function submit() {
 			const contentId = $scope.currentNode.id,
 				icon = $scope.model.icon,
 				iconColor = $scope.model.color;
 
-			$http.post("/umbraco/api/contentnodeicons/saveicon", {
+			$http.post("backoffice/api/contentnodeicons/saveicon", {
 				contentId,
 				icon,
 				iconColor
-			}).then((response) => {
+			}).then(() => {
 				close();
 				refreshTree();
 				notificationsService.success("Icon Set", "Your custom icon has been applied to this content node.");
-			}, (reject) => {
+			}, () => {
 				notificationsService.error("Icon Not Set", "Something went wrong.");
 			});
 		}
+
 		function remove() {
-			$http.get(`/umbraco/api/contentnodeicons/removeicon/${$scope.currentNode.id}`).then(() => {
+			$http.delete(`backoffice/api/contentnodeicons/removeicon?id=${$scope.currentNode.id}`).then(() => {
 				notificationsService.success("Icon Removed", "Your custom icon has been removed from this content node.");
 				close();
 				refreshTree();
@@ -205,6 +213,7 @@
 				notificationsService.error("Icon Not Removed", "Something went wrong.");
 			});
 		}
+
 		function refreshTree() {
 			let currentNode = appState.getTreeState("selectedNode"),
 				currentPath = treeService.getPath(currentNode);
@@ -213,6 +222,7 @@
 				navigationService.syncTree({ tree: "content", path: currentPath, forceReload: true });
 			});
 		}
+
 		onBeforeInit();
 	}
 

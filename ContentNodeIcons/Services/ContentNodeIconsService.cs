@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using U13SK.ContentNodeIcons.Database;
+﻿using U13SK.ContentNodeIcons.Database;
 using U13SK.ContentNodeIcons.Interfaces;
 using Umbraco.Cms.Core.Cache;
 using Umbraco.Cms.Core.Scoping;
@@ -20,61 +18,50 @@ public class ContentNodeIconsService : IContentNodeIcons
     }
 
     public List<Schema> GetIcons()
-    {
-        // GetCacheItem will automatically insert the object
-        // into cache if it doesn't exist.
-        return _runtimeCache.GetCacheItem(Settings.CacheKey, () =>
-        {
-            using (var scope = _scopeProvider.CreateScope(autoComplete: true))
-            {
-                var database = scope.Database;
-                var results = scope.Database.Fetch<Schema>("SELECT * FROM U13SK_ContentNodeIcons");
-                scope.Complete();
-                return results;
-            }
-        });
-    }
+        => _runtimeCache.GetCacheItem(Settings.CacheKey, FetchAllIconsFromDatabase);
 
     public Schema GetIcon(int id)
-    {
-        var icons = GetIcons();
-        return icons.Where(x => x.ContentId.Equals(id)).FirstOrDefault();
-    }
+        => GetIcons().FirstOrDefault(x => x.ContentId == id);
 
     public Schema SaveIcon(Schema config)
     {
-        using (var scope = _scopeProvider.CreateScope(autoComplete: true))
-        {
-            var database = scope.Database;
-            scope.Database.Save(config);
-            scope.Complete();
-
-            RecycleCache();
-
-            return config;
-        }
+        ExecuteDatabaseOperation(scope => scope.Database.Save(config));
+        RecycleCache();
+        return config;
     }
 
     public bool RemoveIcon(int id)
     {
-        using (var scope = _scopeProvider.CreateScope(autoComplete: true))
-        {
-            var database = scope.Database;
-            scope.Database.Delete<Schema>(id);
-            scope.Complete();
-
-            RecycleCache();
-
-            return true;
-        }
+        ExecuteDatabaseOperation(scope => scope.Database.Delete<Schema>(id));
+        RecycleCache();
+        return true;
     }
 
     private void RecycleCache()
-    {
-        // Clear cache
-        _runtimeCache.ClearByKey(Settings.CacheKey);
+        => _runtimeCache.ClearByKey(Settings.CacheKey);
 
-        // Rebuild cache
-        GetIcons();
+    private List<Schema> FetchAllIconsFromDatabase()
+    {
+        return ExecuteDatabaseOperation(scope =>
+        {
+            return scope.Database.Fetch<Schema>("SELECT * FROM U13SK_ContentNodeIcons");
+        });
+    }
+
+    private T ExecuteDatabaseOperation<T>(Func<IScope, T> operation)
+    {
+        using var scope = _scopeProvider.CreateScope(autoComplete: true);
+        var result = operation(scope);
+        scope.Complete();
+        return result;
+    }
+
+    private void ExecuteDatabaseOperation(Action<IScope> operation)
+    {
+        ExecuteDatabaseOperation(scope =>
+        {
+            operation(scope);
+            return true;
+        });
     }
 }

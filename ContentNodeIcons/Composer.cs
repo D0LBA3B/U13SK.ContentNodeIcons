@@ -21,6 +21,6 @@ public class Composer : IComposer
         builder.AddNotificationHandler<MenuRenderingNotification, ContentNodeIconsMenuHandler>();
 
         // Database Migration
-        builder.Components().Append<ContentNodeIconsComponent>();
+        builder.AddComponent<ContentNodeIconsComponent>();
     }
 }

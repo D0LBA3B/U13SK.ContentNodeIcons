@@ -1,36 +1,45 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
 using U13SK.ContentNodeIcons.Database;
 using U13SK.ContentNodeIcons.Interfaces;
-using Umbraco.Cms.Web.Common.Controllers;
+using Umbraco.Cms.Web.BackOffice.Controllers;
 
 namespace U13SK.ContentNodeIcons.Api;
 
-public class ContentNodeIconsController : UmbracoApiController
+public class ContentNodeIconsController : UmbracoAuthorizedJsonController
 {
     private readonly IContentNodeIcons _contentNodeIconsService;
 
     public ContentNodeIconsController(IContentNodeIcons contentNodeIconsService)
     => _contentNodeIconsService = contentNodeIconsService;
 
-    [Route("geticons")]
-    public List<Schema> GetIcons()
-        => _contentNodeIconsService.GetIcons();
+    [HttpGet]
+    public IActionResult GetIcons()
+    {
+        var icons = _contentNodeIconsService.GetIcons();
+        return icons != null ? Ok(icons) : NotFound();
+    }
 
     [HttpGet]
-    [Route("geticon/{id}")]
-    // umbraco/api/contentnodeicons/geticon
-    public Schema GetIcon(int id = 0)
-        => _contentNodeIconsService.GetIcon(id);
+    public IActionResult GetIcon(int id)
+    {
+        var icon = _contentNodeIconsService.GetIcon(id);
+        return icon != null ? Ok(icon) : NotFound();
+    }
 
     [HttpPost]
-    // umbraco/api/contentnodeicons/saveicon
-    public Schema SaveIcon(Schema config)
-        => _contentNodeIconsService.SaveIcon(config);
+    public IActionResult SaveIcon([FromBody] Schema config)
+    {
+        if (config == null)
+            return BadRequest("Invalid icon data.");
 
-    [HttpGet]
-    [Route("removeicon/{id}")]
-    // umbraco/api/contentnodeicons/removeicon
-    public bool RemoveIcon(int id = 0)
-        => _contentNodeIconsService.RemoveIcon(id);
+        var savedIcon = _contentNodeIconsService.SaveIcon(config);
+        return Ok(savedIcon);
+    }
+
+    [HttpDelete]
+    public IActionResult RemoveIcon(int id)
+    {
+        var success = _contentNodeIconsService.RemoveIcon(id);
+        return success ? Ok() : NotFound();
+    }
 }

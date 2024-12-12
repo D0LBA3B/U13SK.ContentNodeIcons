@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using U13SK.ContentNodeIcons.Interfaces;
 using Umbraco.Cms.Core;
 using Umbraco.Cms.Core.Events;

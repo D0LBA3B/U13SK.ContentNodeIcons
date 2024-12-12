@@ -6,7 +6,7 @@
     <PackageReference Include="Umbraco.Cms" Version="13.0.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\U13SK.ContentNodeIcons\U13SK.ContentNodeIcons.csproj" />
+    <ProjectReference Include="..\ContentNodeIcons\U13SK.ContentNodeIcons.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="umbraco\Data\**" />
