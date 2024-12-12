@@ -1,5 +1,3 @@
-> [Please report all issues at the public GitHub repository](https://github.com/D0LBA3B/U13SK.ContentNodeIcons/issues).
-
 # Content Node Icons
 
 Assign custom icons to individual content nodes through the backoffice of Umbraco.  
