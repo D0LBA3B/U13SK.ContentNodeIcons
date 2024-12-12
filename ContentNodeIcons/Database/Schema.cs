@@ -7,9 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Umbraco.Core.Persistence.DatabaseAnnotations;
 
-namespace U8SK.ContentNodeIcons.Database
+namespace U13SK.ContentNodeIcons.Database
 {
-    [TableName("U8SK_ContentNodeIcons")]
+    [TableName("U13SK_ContentNodeIcons")]
     [PrimaryKey("ContentId", AutoIncrement = false)]
     [ExplicitColumns]
     public class Schema

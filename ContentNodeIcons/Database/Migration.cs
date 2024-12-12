@@ -8,7 +8,7 @@ using Umbraco.Core.Services;
 using NPoco;
 using Umbraco.Core.Persistence.DatabaseAnnotations;
 
-namespace U8SK.ContentNodeIcons.Database
+namespace U13SK.ContentNodeIcons.Database
 {
 
 	/*
@@ -32,7 +32,7 @@ namespace U8SK.ContentNodeIcons.Database
 		public void Initialize()
 		{
 
-			var migrationPlan = new MigrationPlan("U8SKContentNodeIcons");
+			var migrationPlan = new MigrationPlan("U13SKContentNodeIcons");
 
 			migrationPlan.From(string.Empty)
 				.To<AddContentNodeIconsTable>("contentNodeIcons-db");
@@ -54,16 +54,16 @@ namespace U8SK.ContentNodeIcons.Database
 
 		public override void Migrate()
 		{
-			Logger.Debug<AddContentNodeIconsTable>("Running migration {MigrationStep}", "AddU8SKContentNodeIconsTable");
+			Logger.Debug<AddContentNodeIconsTable>("Running migration {MigrationStep}", "AddU13SKContentNodeIconsTable");
 
 			// Lots of methods available in the MigrationBase class - discover with this.
-			if (TableExists("U8SK_ContentNodeIcons") == false)
+			if (TableExists("U13SK_ContentNodeIcons") == false)
 			{
 				Create.Table<Schema>().Do();
 			}
 			else
 			{
-				Logger.Debug<AddContentNodeIconsTable>("The database table {DbTable} already exists, skipping", "U8SKContentNodeIcons");
+				Logger.Debug<AddContentNodeIconsTable>("The database table {DbTable} already exists, skipping", "U13SKContentNodeIcons");
 			}
 		}
 

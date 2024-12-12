@@ -1,10 +1,10 @@
 ﻿using Umbraco.Core;
 using Umbraco.Core.Composing;
-using U8SK.ContentNodeIcons.Database;
-using U8SK.ContentNodeIcons.Trees;
-using U8SK.ContentNodeIcons.Api;
+using U13SK.ContentNodeIcons.Database;
+using U13SK.ContentNodeIcons.Trees;
+using U13SK.ContentNodeIcons.Api;
 
-namespace U8SK.ContentNodeIcons
+namespace U13SK.ContentNodeIcons
 {
 	public class CustomIconsComposer : IUserComposer
 	{

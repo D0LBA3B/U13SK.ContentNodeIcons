@@ -5,7 +5,7 @@ using System.Net.Http.Formatting;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http.ModelBinding;
-using U8SK.ContentNodeIcons.Api;
+using U13SK.ContentNodeIcons.Api;
 using Umbraco.Core;
 using Umbraco.Core.Composing;
 using Umbraco.Core.Models.PublishedContent;
@@ -13,7 +13,7 @@ using Umbraco.Web;
 using Umbraco.Web.Models.Trees;
 using Umbraco.Web.Trees;
 
-namespace U8SK.ContentNodeIcons.Trees
+namespace U13SK.ContentNodeIcons.Trees
 {
 
 	public class TreeEvents : IComponent
@@ -72,7 +72,7 @@ namespace U8SK.ContentNodeIcons.Trees
 
 				// optional, if you don't want to follow the naming conventions, but do want to use a angular view
 				// you can also use a direct path "../App_Plugins/my/long/url/to/view.html"
-				i.AdditionalData.Add("actionView", "/app_plugins/u8sk.contentnodeicons/tree.action.seticontemplate.html");
+				i.AdditionalData.Add("actionView", "/app_plugins/U13SK.contentnodeicons/tree.action.seticontemplate.html");
 
 				// sets the icon to icon-wine-glass
 				i.Icon = "favorite";

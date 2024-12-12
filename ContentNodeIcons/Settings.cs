@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace U8SK.ContentNodeIcons
+﻿namespace U13SK.ContentNodeIcons
 {
-	public static class Settings
-	{
-		public const string Name = "Content Node Icons";
-		public const string Alias = "U8SKContentNodeIcons";
-		public const string CacheKey = "U8SKContentNodeIcons";
-	}
+    public static class Settings
+    {
+        public const string Name = "Content Node Icons";
+        public const string Alias = "U13SKContentNodeIcons";
+        public const string CacheKey = "U13SKContentNodeIcons";
+    }
 }

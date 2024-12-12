@@ -1,25 +1,25 @@
-> [Please report all issues at the public GitHub repository](https://github.com/markadrake/U8SK.ContentNodeIcons/issues).
+> [Please report all issues at the public GitHub repository](https://github.com/markadrake/U13SK.ContentNodeIcons/issues).
 
 # Content Node Icons
 
 Assign custom icons to individual content nodes through the backoffice of Umbraco. 
 
-*Part of my Umbraco 8 Starter Kit (U8SK).*
+*Part of my Umbraco 8 Starter Kit (U13SK).*
 
 | At a Glance | |
 | :-- | --
 | Current Version: | 1.0.1
 | Requirements: | Umbraco 8.7+
-| Nuget: | [Nuget Package](https://www.nuget.org/packages/U8SK.ContentNodeIcons/)
+| Nuget: | [Nuget Package](https://www.nuget.org/packages/U13SK.ContentNodeIcons/)
 | Umbraco: | [Umbraco Package](https://our.umbraco.com/packages/backoffice-extensions/content-node-icons/)
 
 ## Install via Nuget
 
-**If you are using the Nuget Package Manager**, search for "U8SK.ContentNodeIcons" authored by Mark Drake. 
+**If you are using the Nuget Package Manager**, search for "U13SK.ContentNodeIcons" authored by Mark Drake. 
 
 **If you are using the Package Manager Console**, use the following command:
 
-```PM> Install-Package U8SK.ContentNodeIcons -Version 1.0.0```
+```PM> Install-Package U13SK.ContentNodeIcons -Version 1.0.0```
 
 ## Install Through the Umbraco Backoffice
 

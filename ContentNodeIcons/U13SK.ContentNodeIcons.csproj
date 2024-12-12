@@ -6,7 +6,7 @@
 		<Authors>Mark Drake</Authors>
 		<Company>Mark Drake</Company>
 		<Description>This allows for custom icons to be assigned to individual content nodes in the Umbraco CMS. 
-Part of the Umbraco 8 Starter Kit (U8SK).</Description>
+Part of the Umbraco 13 Starter Kit (U13SK).</Description>
 		<Copyright>Copyright © 2020 Mark Drake, and other contributors</Copyright>
 		<PackageProjectUrl>https://github.com/markadrake/U8SK.ContentNodeIcons</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/markadrake/U8SK.ContentNodeIcons</RepositoryUrl>
@@ -20,15 +20,15 @@ Part of the Umbraco 8 Starter Kit (U8SK).</Description>
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <None Remove="App_Plugins\U8SK.ContentNodeIcons\package.manifest" />
-	  <None Remove="App_Plugins\U8SK.ContentNodeIcons\tree.action.setIconController.js" />
-	  <None Remove="App_Plugins\U8SK.ContentNodeIcons\tree.action.setIconTemplate.html" />
+	  <None Remove="App_Plugins\U13SK.ContentNodeIcons\package.manifest" />
+	  <None Remove="App_Plugins\U13SK.ContentNodeIcons\tree.action.setIconController.js" />
+	  <None Remove="App_Plugins\U13SK.ContentNodeIcons\tree.action.setIconTemplate.html" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Content Include="App_Plugins\U8SK.ContentNodeIcons\package.manifest" />
-	  <Content Include="App_Plugins\U8SK.ContentNodeIcons\tree.action.setIconController.js" />
-	  <Content Include="App_Plugins\U8SK.ContentNodeIcons\tree.action.setIconTemplate.html" />
+	  <Content Include="App_Plugins\U13SK.ContentNodeIcons\package.manifest" />
+	  <Content Include="App_Plugins\U13SK.ContentNodeIcons\tree.action.setIconController.js" />
+	  <Content Include="App_Plugins\U13SK.ContentNodeIcons\tree.action.setIconTemplate.html" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -37,7 +37,7 @@ Part of the Umbraco 8 Starter Kit (U8SK).</Description>
 	</ItemGroup>
 
 	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
-	  <Exec Command="xcopy /S /E /Y &quot;$(ProjectDir)App_Plugins&quot; &quot;$(SolutionDir)U8SK.Web\App_Plugins&quot;" />
+	  <Exec Command="xcopy /S /E /Y &quot;$(ProjectDir)App_Plugins&quot; &quot;$(SolutionDir)U13SK.Web\App_Plugins&quot;" />
 	</Target>
 
 </Project>

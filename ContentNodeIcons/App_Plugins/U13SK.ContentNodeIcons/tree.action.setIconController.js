@@ -216,6 +216,6 @@
 		onBeforeInit();
 	}
 
-	angular.module("umbraco").controller("U8SK.ContentNodeIcons.SetIconController", IconPickerController);
+	angular.module("umbraco").controller("U13SK.ContentNodeIcons.SetIconController", IconPickerController);
 
 })();
