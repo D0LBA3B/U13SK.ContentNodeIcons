@@ -360,3 +360,14 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# Temp folder containing Examine indexes, NuCache, MediaCache, etc.
+/ContentNodeIcons.Test/umbraco/Data/TEMP/
+
+# SQLite database files
+/ContentNodeIcons.Test/umbraco/Data/*.sqlite.db
+/ContentNodeIcons.Test/umbraco/Data/*.sqlite.db-shm
+/ContentNodeIcons.Test/umbraco/Data/*.sqlite.db-wal
+
+#Test files
+/ContentNodeIcons.Test/App_Plugins/
