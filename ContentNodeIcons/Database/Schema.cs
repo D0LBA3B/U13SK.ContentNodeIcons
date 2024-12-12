@@ -1,11 +1,6 @@
 ﻿using Newtonsoft.Json;
 using NPoco;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Umbraco.Core.Persistence.DatabaseAnnotations;
+using Umbraco.Cms.Infrastructure.Persistence.DatabaseAnnotations;
 
 namespace U13SK.ContentNodeIcons.Database
 {

@@ -1,94 +1,66 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http.Formatting;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.Http.ModelBinding;
+using Umbraco.Cms.Core.Models.Trees;
+using Umbraco.Cms.Core.Notifications;
+using Umbraco.Cms.Core;
 using U13SK.ContentNodeIcons.Api;
-using Umbraco.Core;
-using Umbraco.Core.Composing;
-using Umbraco.Core.Models.PublishedContent;
-using Umbraco.Web;
-using Umbraco.Web.Models.Trees;
-using Umbraco.Web.Trees;
+using Umbraco.Cms.Core.Security;
+using Umbraco.Cms.Core.Services;
+using Microsoft.Extensions.Logging;
+using Umbraco.Cms.Core.Events;
+using Umbraco.Cms.Core.Trees;
 
-namespace U13SK.ContentNodeIcons.Trees
+public class ContentNodeIconsTreeNodesHandler : INotificationHandler<TreeNodesRenderingNotification>
 {
+    private readonly IContentNodeIconsService _contentNodeIconsService;
 
-	public class TreeEvents : IComponent
-	{
+    public ContentNodeIconsTreeNodesHandler(IContentNodeIconsService contentNodeIconsService)
+    {
+        _contentNodeIconsService = contentNodeIconsService;
+    }
 
-		private readonly IContentNodeIconsService _contentNodeIconsService;
+    public void Handle(TreeNodesRenderingNotification notification)
+    {
+        if (notification.TreeAlias == Constants.Trees.Content)
+        {
+            var customIcons = _contentNodeIconsService.GetIcons();
 
-		public TreeEvents(IContentNodeIconsService contentNodeIconsService)
-		{
-			_contentNodeIconsService = contentNodeIconsService;
-		}
+            foreach (TreeNode treeNode in notification.Nodes)
+            {
+                if (int.TryParse(treeNode.Id?.ToString(), out var nodeId) && nodeId > 0)
+                {
+                    var node = customIcons.FirstOrDefault(x => x.ContentId == nodeId);
+                    if (node != null)
+                    {
+                        treeNode.Icon = $"{node.Icon} {node.IconColor}";
+                    }
+                }
+            }
+        }
+    }
+}
 
-		public void Initialize()
-		{
-			TreeControllerBase.TreeNodesRendering += TreeControllerBase_TreeNodesRendering;
-			TreeControllerBase.MenuRendering += TreeControllerBase_MenuRendering;
-		}
+public class ContentNodeIconsMenuHandler : INotificationHandler<MenuRenderingNotification>
+{
+    private readonly IMenuItemCollectionFactory _menuItemCollectionFactory;
 
-		// Hijack the rendering of each content node to customize the icon shown.
-		void TreeControllerBase_TreeNodesRendering(TreeControllerBase sender, TreeNodesRenderingEventArgs e)
-		{
+    public ContentNodeIconsMenuHandler(IMenuItemCollectionFactory menuItemCollectionFactory)
+    {
+        _menuItemCollectionFactory = menuItemCollectionFactory;
+    }
 
-			if (sender.TreeAlias == Constants.Trees.Content)
-			{
+    public void Handle(MenuRenderingNotification notification)
+    {
+        if (notification.TreeAlias == Constants.Trees.Content && int.TryParse(notification.NodeId, out var nodeId) && nodeId >= 0)
+        {
+            var menuItem = new MenuItem("setIcon", "Set Icon")
+            {
+                Icon = "favorite",
+                OpensDialog = true
+            };
 
-				var customIcons = _contentNodeIconsService.GetIcons();
-
-				foreach (TreeNode treeNode in e.Nodes)
-				{
-					int nodeId = Convert.ToInt32(treeNode.Id);
-					if(nodeId <= 0)
-					{
-						continue;
-					}
-
-					var node = customIcons.Where(x => x.ContentId.Equals(nodeId)).FirstOrDefault();
-					if(node == null)
-					{
-						continue;
-					}
-
-					treeNode.Icon = $"{node.Icon} {node.IconColor}";
-				}
-
-			}
-		}
-
-		// Provide a new context menu option.
-		void TreeControllerBase_MenuRendering(TreeControllerBase sender, MenuRenderingEventArgs e)
-		{
-
-			if (sender.TreeAlias == Constants.Trees.Content && Int32.Parse(e.NodeId) >= 0)
-			{
-				// creates a menu action that will open /umbraco/currentSection/itemAlias.html
-				var i = new MenuItem("setIcon", "Set Icon");
-
-				// optional, if you don't want to follow the naming conventions, but do want to use a angular view
-				// you can also use a direct path "../App_Plugins/my/long/url/to/view.html"
-				i.AdditionalData.Add("actionView", "/app_plugins/U13SK.contentnodeicons/tree.action.seticontemplate.html");
-
-				// sets the icon to icon-wine-glass
-				i.Icon = "favorite";
-
-				// adds "..."
-				i.OpensDialog = true;
-
-				// insert at index 5
-				e.Menu.Items.Insert(5, i);
-			}
-		}
-		public void Terminate()
-		{
-			TreeControllerBase.TreeNodesRendering -= TreeControllerBase_TreeNodesRendering;
-			TreeControllerBase.MenuRendering -= TreeControllerBase_MenuRendering;
-		}
-
-	}
+            menuItem.AdditionalData.Add("actionView", "/app_plugins/U13SK.contentnodeicons/tree.action.seticontemplate.html");
+            notification.Menu.Items.Insert(5, menuItem);
+        }
+    }
 }

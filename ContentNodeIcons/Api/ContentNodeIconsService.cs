@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using U13SK.ContentNodeIcons.Database;
-using Umbraco.Core.Cache;
-using Umbraco.Core.Scoping;
+using Umbraco.Cms.Core.Cache;
+using Umbraco.Cms.Core.Scoping;
+using Umbraco.Extensions;
 
 namespace U13SK.ContentNodeIcons.Api
 {

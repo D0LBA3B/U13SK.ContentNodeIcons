@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Web.Http;
+﻿using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using U13SK.ContentNodeIcons.Database;
-using Umbraco.Web.WebApi;
+using Umbraco.Cms.Web.Common.Controllers;
 
 namespace U13SK.ContentNodeIcons.Api
 {
@@ -43,6 +43,5 @@ namespace U13SK.ContentNodeIcons.Api
         {
             return _contentNodeIconsService.RemoveIcon(id);
         }
-
     }
 }
