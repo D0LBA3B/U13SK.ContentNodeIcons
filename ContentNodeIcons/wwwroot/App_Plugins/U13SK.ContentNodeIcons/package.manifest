@@ -1,0 +1,6 @@
+{
+	"css": [],
+	"javascript": [
+		"~/App_Plugins/U13SK.ContentNodeIcons/Tree.action.setIconController.js"
+	]
+}

@@ -1,38 +1,28 @@
-<Project Sdk="Microsoft.NET.Sdk">
-
-	<PropertyGroup>
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+  <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-		<Version>1.0.0</Version>
-		<Authors>Mark Drake</Authors>
-		<Company>Mark Drake</Company>
-		<Description>This allows for custom icons to be assigned to individual content nodes in the Umbraco CMS. 
-    Part of the Umbraco 13 Starter Kit (U13SK).</Description>
-		<Copyright>Copyright © 2020 Mark Drake, and other contributors</Copyright>
-		<PackageProjectUrl>https://github.com/markadrake/U8SK.ContentNodeIcons</PackageProjectUrl>
-		<RepositoryUrl>https://github.com/markadrake/U8SK.ContentNodeIcons</RepositoryUrl>
-		<RepositoryType>Git</RepositoryType>
-		<PackageTags>Umbraco</PackageTags>
-		<PackageReleaseNotes>This is an beta release. Please report any issues to the public repository.</PackageReleaseNotes>
-		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<NeutralLanguage>en</NeutralLanguage>
-		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-	</PropertyGroup>
-
-	<ItemGroup>
-	  <None Remove="App_Plugins\U13SK.ContentNodeIcons\package.manifest" />
-	  <None Remove="App_Plugins\U13SK.ContentNodeIcons\tree.action.setIconController.js" />
-	  <None Remove="App_Plugins\U13SK.ContentNodeIcons\tree.action.setIconTemplate.html" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Content Include="App_Plugins\U13SK.ContentNodeIcons\package.manifest" />
-	  <Content Include="App_Plugins\U13SK.ContentNodeIcons\tree.action.setIconController.js" />
-	  <Content Include="App_Plugins\U13SK.ContentNodeIcons\tree.action.setIconTemplate.html" />
-	</ItemGroup>
-
-	<ItemGroup>
+    <Version>1.0.4</Version>
+    <Authors>Mark Drake</Authors>
+    <Company>Mark Drake</Company>
+    <Description>This allows for custom icons to be assigned to individual content nodes in the Umbraco CMS.</Description>
+    <Copyright>Copyright S© 2020 Mark Drake, and other contributors</Copyright>
+    <PackageProjectUrl>https://github.com/D0LBA3B/U13SK.ContentNodeIcons</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/D0LBA3B/U13SK.ContentNodeIcons</RepositoryUrl>
+    <RepositoryType>Git</RepositoryType>
+    <PackageTags>Umbraco</PackageTags>
+    <PackageReleaseNotes>This is an beta release. Please report any issues to the public repository.</PackageReleaseNotes>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <NeutralLanguage>en</NeutralLanguage>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+  </PropertyGroup>
+  <ItemGroup>
     <PackageReference Include="Umbraco.Cms.Web.Website" Version="13.0.0" />
     <PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="13.0.0" />
-	</ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="wwwroot\App_Plugins\U13SK.ContentNodeIcons\package.manifest" />
+    <None Include="wwwroot\App_Plugins\U13SK.ContentNodeIcons\Tree.action.setIconController.js" />
+    <None Include="wwwroot\App_Plugins\U13SK.ContentNodeIcons\Tree.action.setIconTemplate.html" />
+  </ItemGroup>
 </Project>
