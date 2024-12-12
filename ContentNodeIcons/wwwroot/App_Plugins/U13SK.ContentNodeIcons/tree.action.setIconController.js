@@ -118,23 +118,29 @@
 				onInit();
 			});
 		}
+
 		function getCurrentNodesIcon() {
 			// make api request with $scope.currentNode.id to get current icon configuration
 			const contentId = $scope.currentNode.id;
 
 			return $q(function (resolve, reject) {
-				$http.get(`backoffice/api/contentnodeicons/geticon/${contentId}`).then((response) => {
-					if (!response.data) reject(null);
-
-					let data = response.data;
-					if (!data.icon || !data.iconColor) reject(null);
-
-					resolve({
-						icon: data.icon,
-						color: data.iconColor
-					});
+				$http.get(`backoffice/api/contentnodeicons/geticon?id=${contentId}`).then((response) => {
+					if (!response.data || !response.data.icon || !response.data.iconColor) {
+						resolve({
+							icon: null,
+							color: null
+						});
+					} else {
+						resolve({
+							icon: response.data.icon,
+							color: response.data.iconColor
+						});
+					}
 				}, () => {
-					reject(null);
+					resolve({
+						icon: null,
+						color: null
+					});
 				});
 			});
 		}

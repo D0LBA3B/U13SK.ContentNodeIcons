@@ -23,7 +23,7 @@ public class ContentNodeIconsController : UmbracoAuthorizedJsonController
     public IActionResult GetIcon(int id)
     {
         var icon = _contentNodeIconsService.GetIcon(id);
-        return icon != null ? Ok(icon) : NotFound();
+        return icon != null ? Ok(icon) : NoContent();
     }
 
     [HttpPost]
@@ -40,6 +40,6 @@ public class ContentNodeIconsController : UmbracoAuthorizedJsonController
     public IActionResult RemoveIcon(int id)
     {
         var success = _contentNodeIconsService.RemoveIcon(id);
-        return success ? Ok() : NotFound();
+        return success ? Ok() : UnprocessableEntity();
     }
 }
