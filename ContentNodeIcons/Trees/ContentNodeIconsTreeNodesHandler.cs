@@ -1,4 +1,3 @@
-using System.Linq;
 using U13SK.ContentNodeIcons.Interfaces;
 using Umbraco.Cms.Core;
 using Umbraco.Cms.Core.Events;
@@ -30,6 +29,12 @@ public class ContentNodeIconsTreeNodesHandler : INotificationHandler<TreeNodesRe
                     if (node != null)
                     {
                         treeNode.Icon = $"{node.Icon} {node.IconColor}";
+
+                        if (node.TextColorization)
+                        {
+                            treeNode.CssClasses.Add("text-colorized");
+                            treeNode.CssClasses.Add(node.IconColor);
+                        }
                     }
                 }
             }

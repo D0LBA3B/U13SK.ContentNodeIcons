@@ -22,6 +22,7 @@
 		vm.submit = submit;
 		vm.close = close;
 		vm.remove = remove;
+		vm.onToggle = toggleHandler;
 		vm.colors = [
 			{
 				name: 'Black',
@@ -112,6 +113,7 @@
 				vm.hasIconSet = true;
 				$scope.model.icon = data.icon;
 				$scope.model.color = data.color;
+				$scope.model.textColorization = data.textColorization !== undefined ? data.textColorization : false;
 				onInit();
 			}, () => {
 				// This content node does not have a custom icon.
@@ -128,18 +130,21 @@
 					if (!response.data || !response.data.icon || !response.data.iconColor) {
 						resolve({
 							icon: null,
-							color: null
+							color: null,
+							textColorization: false
 						});
 					} else {
 						resolve({
 							icon: response.data.icon,
-							color: response.data.iconColor
+							color: response.data.iconColor,
+                            textColorization: response.data.textColorization || false
 						});
 					}
 				}, () => {
 					resolve({
 						icon: null,
-						color: null
+						color: null,
+						textColorization: false
 					});
 				});
 			});
@@ -156,6 +161,7 @@
 			vm.color = $scope.model.color ? findColor($scope.model.color) : vm.colors.find(function (x) {
 				return x.default;
 			});
+			vm.textColorization = $scope.model.textColorization || false;
 			// if an icon is passed in - preselect it
 			vm.icon = $scope.model.icon ? $scope.model.icon : undefined;
 		}
@@ -192,15 +198,22 @@
 			navigationService.hideMenu();
 		}
 
+		function toggleHandler() {
+			vm.textColorization = !vm.textColorization;
+			$scope.model.textColorization = vm.textColorization;
+		}
+
 		function submit() {
 			const contentId = $scope.currentNode.id,
 				icon = $scope.model.icon,
-				iconColor = $scope.model.color;
+				iconColor = $scope.model.color,
+				textColorization = $scope.model.textColorization;
 
 			$http.post("backoffice/api/contentnodeicons/saveicon", {
 				contentId,
 				icon,
-				iconColor
+				iconColor,
+				textColorization
 			}).then(() => {
 				close();
 				refreshTree();
@@ -228,7 +241,6 @@
 				navigationService.syncTree({ tree: "content", path: currentPath, forceReload: true });
 			});
 		}
-
 		onBeforeInit();
 	}
 

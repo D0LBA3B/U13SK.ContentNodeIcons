@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using Umbraco.Cms.Core;
 using Umbraco.Cms.Core.Composing;
 using Umbraco.Cms.Core.Migrations;
 using Umbraco.Cms.Core.Scoping;
@@ -16,18 +17,25 @@ namespace U13SK.ContentNodeIcons.Database
         private readonly ICoreScopeProvider _coreScopeProvider;
         private readonly IMigrationPlanExecutor _migrationPlanExecutor;
         private IKeyValueService _keyValueService;
-        private readonly ILogger<ContentNodeIconsComponent> _logger;
+        private readonly IRuntimeState _runtimeState;
 
-        public ContentNodeIconsComponent(ICoreScopeProvider coreScopeProvider, IMigrationPlanExecutor migrationPlanExecutor, IKeyValueService keyValueService, ILogger<ContentNodeIconsComponent> logger)
+        public ContentNodeIconsComponent(ICoreScopeProvider coreScopeProvider,
+            IMigrationPlanExecutor migrationPlanExecutor,
+            IKeyValueService keyValueService,
+            IRuntimeState runtimeState)
         {
             _coreScopeProvider = coreScopeProvider;
             _migrationPlanExecutor = migrationPlanExecutor;
             _keyValueService = keyValueService;
-            _logger = logger;
+            _runtimeState = runtimeState;
         }
 
         public void Initialize()
         {
+            //Umbraco is in installation mode, no migration is possible
+            if (_runtimeState.Level < RuntimeLevel.Run)
+                return;
+
             var migrationPlan = new MigrationPlan("U13SKContentNodeIcons");
 
             migrationPlan.From(string.Empty)
@@ -49,7 +57,7 @@ namespace U13SK.ContentNodeIcons.Database
         protected override void Migrate()
         {
             Logger.LogDebug("Running migration {MigrationStep}", "AddU13SKContentNodeIconsTable ");
-            if (TableExists("U13SK_ContentNodeIcons") == false)
+            if (!TableExists("U13SK_ContentNodeIcons"))
                 Create.Table<Schema>().Do();
             else
                 Logger.LogDebug("The database table {DbTable} already exists, skipping", "U13SKContentNodeIcons");

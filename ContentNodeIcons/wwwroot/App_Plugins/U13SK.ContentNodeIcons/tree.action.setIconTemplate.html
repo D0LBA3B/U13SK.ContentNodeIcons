@@ -1,4 +1,4 @@
-﻿<!--
+<!--
 	Slightly modified version from Umbraco CMS:
 		- Umbraco-CMS/src/Umbraco.Web.UI.Client/src/views/common/infiniteeditors/iconpicker/iconpicker.html
 		- https://github.com/umbraco/Umbraco-CMS/blob/737291ce456c8424a8c36d9c3711f0469bbe3677/src/Umbraco.Web.UI.Client/src/views/common/infiniteeditors/iconpicker/iconpicker.html
@@ -10,58 +10,58 @@
 		  ng-controller="U13SK.ContentNodeIcons.SetIconController as vm"
 		  novalidate
 		  val-form-manager>
-
 		{{currentNode.id}}
-
 		<umb-editor-container style="top:0;">
 			<umb-box>
-				<umb-box-content>
+                <umb-box-content>
+                    <div class="umb-control-group">
+                        <div class="form-search">
+                            <i class="icon-search"></i>
+                            <input type="text"
+                                   style="width: 100%"
+                                   ng-model="searchTerm"
+                                   class="umb-search-field search-query input-block-level"
+                                   localize="placeholder"
+                                   placeholder="@placeholders_filter"
+                                   umb-auto-focus
+                                   no-dirty-check />
+                        </div>
+                        <div class="mb4">
+                            <div class="flex items-center" style="margin-top: 25px;">
+                                <umb-toggle checked="vm.textColorization" on-click="vm.onToggle()"></umb-toggle>
+                                <label class="mb0 ml2">
+                                    <localize key="u13skcontentnodeicons_colorizetext">Colorize node text</localize>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="umb-control-group">
+                        <umb-color-swatches use-color-class="true"
+                                            colors="vm.colors"
+                                            selected-color="vm.color"
+                                            size="s"
+                                            on-select="vm.selectColor(color)">
+                        </umb-color-swatches>
+                    </div>
+                    <umb-load-indicator ng-if="vm.loading"></umb-load-indicator>
+                    <div class="umb-control-group" ng-show="!vm.loading && filtered.length > 0 ">
+                        <ul class="umb-iconpicker" ng-class="vm.color.value" ng-show="vm.icons">
+                            <li class="umb-iconpicker-item" ng-class="{'-selected': icon == model.icon}" ng-repeat="icon in filtered = (vm.icons | filter: searchTerm) track by $id(icon)">
+                                <button type="button" title="{{icon}}" ng-click="vm.selectIcon(icon, vm.color.value)" prevent-default>
+                                    <i class="{{icon}} large" aria-hidden="true"></i>
+                                    <span class="sr-only"><localize key="buttons_select">Select</localize> {{icon}}</span>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                    <umb-empty-state ng-if="filtered.length === 0"
+                                     position="center">
+                        <localize key="defaultdialogs_noIconsFound">No icons were found.</localize>
+                    </umb-empty-state>
 
-					<div class="umb-control-group">
-						<div class="form-search">
-							<i class="icon-search"></i>
-							<input type="text"
-								   style="width: 100%"
-								   ng-model="searchTerm"
-								   class="umb-search-field search-query input-block-level"
-								   localize="placeholder"
-								   placeholder="@placeholders_filter"
-								   umb-auto-focus
-								   no-dirty-check />
-						</div>
-					</div>
-
-					<div class="umb-control-group">
-						<umb-color-swatches use-color-class="true"
-											colors="vm.colors"
-											selected-color="vm.color"
-											size="s"
-											on-select="vm.selectColor(color)">
-						</umb-color-swatches>
-					</div>
-
-					<umb-load-indicator ng-if="vm.loading"></umb-load-indicator>
-
-					<div class="umb-control-group" ng-show="!vm.loading && filtered.length > 0 ">
-						<ul class="umb-iconpicker" ng-class="vm.color.value" ng-show="vm.icons">
-							<li class="umb-iconpicker-item" ng-class="{'-selected': icon == model.icon}" ng-repeat="icon in filtered = (vm.icons | filter: searchTerm) track by $id(icon)">
-								<button type="button" title="{{icon}}" ng-click="vm.selectIcon(icon, vm.color.value)" prevent-default>
-									<i class="{{icon}} large" aria-hidden="true"></i>
-									<span class="sr-only"><localize key="buttons_select">Select</localize> {{icon}}</span>
-								</button>
-							</li>
-						</ul>
-					</div>
-
-					<umb-empty-state ng-if="filtered.length === 0"
-									 position="center">
-						<localize key="defaultdialogs_noIconsFound">No icons were found.</localize>
-					</umb-empty-state>
-
-				</umb-box-content>
+                </umb-box-content>
 			</umb-box>
 		</umb-editor-container>
-
 		<umb-editor-footer>
 			<umb-editor-footer-content-right>
 				<umb-button type="button"

@@ -1,0 +1,98 @@
+.text-colorized a.umb-tree-item__label {
+    color: inherit !important;
+}
+
+/* Black */
+.text-colorized.color-black a.umb-tree-item__label {
+    color: #000000 !important;
+}
+
+/* Blue Grey */
+.text-colorized.color-blue-grey a.umb-tree-item__label {
+    color: #607D8B !important;
+}
+
+/* Grey */
+.text-colorized.color-grey a.umb-tree-item__label {
+    color: #9E9E9E !important;
+}
+
+/* Brown */
+.text-colorized.color-brown a.umb-tree-item__label {
+    color: #795548 !important;
+}
+
+/* Blue */
+.text-colorized.color-blue a.umb-tree-item__label {
+    color: #2196F3 !important;
+}
+
+/* Light Blue */
+.text-colorized.color-light-blue a.umb-tree-item__label {
+    color: #03A9F4 !important;
+}
+
+/* Indigo */
+.text-colorized.color-indigo a.umb-tree-item__label {
+    color: #3F51B5 !important;
+}
+
+/* Purple */
+.text-colorized.color-purple a.umb-tree-item__label {
+    color: #9C27B0 !important;
+}
+
+/* Deep Purple */
+.text-colorized.color-deep-purple a.umb-tree-item__label {
+    color: #673AB7 !important;
+}
+
+/* Cyan */
+.text-colorized.color-cyan a.umb-tree-item__label {
+    color: #00BCD4 !important;
+}
+
+/* Green */
+.text-colorized.color-green a.umb-tree-item__label {
+    color: #4CAF50 !important;
+}
+
+/* Light Green */
+.text-colorized.color-light-green a.umb-tree-item__label {
+    color: #8BC34A !important;
+}
+
+/* Lime */
+.text-colorized.color-lime a.umb-tree-item__label {
+    color: #CDDC39 !important;
+}
+
+/* Yellow */
+.text-colorized.color-yellow a.umb-tree-item__label {
+    color: #FFEB3B !important;
+}
+
+/* Amber */
+.text-colorized.color-amber a.umb-tree-item__label {
+    color: #FFC107 !important;
+}
+
+/* Orange */
+.text-colorized.color-orange a.umb-tree-item__label {
+    color: #FF9800 !important;
+}
+
+/* Deep Orange */
+.text-colorized.color-deep-orange a.umb-tree-item__label {
+    color: #FF5722 !important;
+}
+
+/* Red */
+.text-colorized.color-red a.umb-tree-item__label {
+    color: #F44336 !important;
+}
+
+/* Pink */
+.text-colorized.color-pink a.umb-tree-item__label {
+    color: #E91E63 !important;
+}

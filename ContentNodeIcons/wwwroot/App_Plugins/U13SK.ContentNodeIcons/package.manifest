@@ -1,5 +1,7 @@
 {
-	"css": [],
+	"css": [
+		"~/App_Plugins/U13SK.ContentNodeIcons/Tree.customStyle.css"
+	],
 	"javascript": [
 		"~/App_Plugins/U13SK.ContentNodeIcons/Tree.action.setIconController.js"
 	]

@@ -41,12 +41,7 @@ public class ContentNodeIconsService : IContentNodeIcons
         => _runtimeCache.ClearByKey(Settings.CacheKey);
 
     private List<Schema> FetchAllIconsFromDatabase()
-    {
-        return ExecuteDatabaseOperation(scope =>
-        {
-            return scope.Database.Fetch<Schema>("SELECT * FROM U13SK_ContentNodeIcons");
-        });
-    }
+        => ExecuteDatabaseOperation(scope => scope.Database.Fetch<Schema>("SELECT * FROM U13SK_ContentNodeIcons"));
 
     private T ExecuteDatabaseOperation<T>(Func<IScope, T> operation)
     {

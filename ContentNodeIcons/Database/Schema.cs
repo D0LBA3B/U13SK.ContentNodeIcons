@@ -21,5 +21,9 @@ namespace U13SK.ContentNodeIcons.Database
         [Column("IconColor")]
         [JsonProperty("iconColor")]
         public string IconColor { get; set; }
+
+        [Column("TextColorization")]
+        [JsonProperty("textColorization")]
+        public bool TextColorization { get; set; }
     }
 }
