@@ -6,20 +6,14 @@ using Umbraco.Cms.Core.Trees;
 
 namespace U13SK.ContentNodeIcons.Trees;
 
-public class ContentNodeIconsTreeNodesHandler : INotificationHandler<TreeNodesRenderingNotification>
+public class ContentNodeIconsTreeNodesHandler(IContentNodeIcons contentNodeIconsService)
+    : INotificationHandler<TreeNodesRenderingNotification>
 {
-    private readonly IContentNodeIcons _contentNodeIconsService;
-
-    public ContentNodeIconsTreeNodesHandler(IContentNodeIcons contentNodeIconsService)
-    {
-        _contentNodeIconsService = contentNodeIconsService;
-    }
-
     public void Handle(TreeNodesRenderingNotification notification)
     {
         if (notification.TreeAlias == Constants.Trees.Content)
         {
-            var customIcons = _contentNodeIconsService.GetIcons();
+            var customIcons = contentNodeIconsService.GetIcons();
 
             foreach (TreeNode treeNode in notification.Nodes)
             {
@@ -28,7 +22,8 @@ public class ContentNodeIconsTreeNodesHandler : INotificationHandler<TreeNodesRe
                     var node = customIcons.FirstOrDefault(x => x.ContentId == nodeId);
                     if (node != null)
                     {
-                        treeNode.Icon = $"{node.Icon} {node.IconColor}";
+                        if(!string.IsNullOrEmpty(node.Icon))
+                            treeNode.Icon = $"{node.Icon} {node.IconColor}";
 
                         if (node.TextColorization)
                         {

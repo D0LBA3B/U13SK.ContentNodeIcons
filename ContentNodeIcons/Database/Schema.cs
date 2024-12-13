@@ -16,11 +16,12 @@ namespace U13SK.ContentNodeIcons.Database
 
         [Column("Icon")]
         [JsonProperty("icon")]
-        public string Icon { get; set; }
+        [NullSetting(NullSetting = NullSettings.Null)]
+        public string? Icon { get; set; }
 
         [Column("IconColor")]
         [JsonProperty("iconColor")]
-        public string IconColor { get; set; }
+        public string IconColor { get; set; } = "color-black";
 
         [Column("TextColorization")]
         [JsonProperty("textColorization")]

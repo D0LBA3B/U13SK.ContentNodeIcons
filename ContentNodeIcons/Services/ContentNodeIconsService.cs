@@ -6,16 +6,9 @@ using Umbraco.Extensions;
 
 namespace U13SK.ContentNodeIcons.Services;
 
-public class ContentNodeIconsService : IContentNodeIcons
+public class ContentNodeIconsService(AppCaches appCaches, IScopeProvider scopeProvider) : IContentNodeIcons
 {
-    private readonly IAppPolicyCache _runtimeCache;
-    private readonly IScopeProvider _scopeProvider;
-
-    public ContentNodeIconsService(AppCaches appCaches, IScopeProvider scopeProvider)
-    {
-        _runtimeCache = appCaches.RuntimeCache;
-        _scopeProvider = scopeProvider;
-    }
+    private readonly IAppPolicyCache _runtimeCache = appCaches.RuntimeCache;
 
     public List<Schema> GetIcons()
         => _runtimeCache.GetCacheItem(Settings.CacheKey, FetchAllIconsFromDatabase);
@@ -45,7 +38,7 @@ public class ContentNodeIconsService : IContentNodeIcons
 
     private T ExecuteDatabaseOperation<T>(Func<IScope, T> operation)
     {
-        using var scope = _scopeProvider.CreateScope(autoComplete: true);
+        using var scope = scopeProvider.CreateScope(autoComplete: true);
         var result = operation(scope);
         scope.Complete();
         return result;

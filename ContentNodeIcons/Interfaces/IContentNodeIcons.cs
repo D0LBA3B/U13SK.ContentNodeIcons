@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using U13SK.ContentNodeIcons.Database;
+﻿using U13SK.ContentNodeIcons.Database;
 
 namespace U13SK.ContentNodeIcons.Interfaces;
 
