@@ -19,11 +19,10 @@ PM> Install-Package U13SK.ContentNodeIcons
 ## Features and Usage
 
 ### Key Features
-- Assign unique icons to content nodes.
+- Assign unique and customizable icons to content nodes, regardless of their type in Umbraco.
+- Change the text color of any node for better visibility or to match specific themes.
 - Intuitive backoffice UI for selecting and managing icons.
 - Seamlessly integrates into the existing Umbraco content structure.
-
-*(Detailed walkthrough coming soon.)*
 
 ## Screenshots
 
